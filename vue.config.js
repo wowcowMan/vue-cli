@@ -10,4 +10,6 @@ module.exports = defineConfig({
       ]
     }
   },
+
+  publicPath: '//vue-cli/dist'
 })
