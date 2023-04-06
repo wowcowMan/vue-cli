@@ -23,8 +23,6 @@ export default {
         console.log(res)
         if (!res.data.success) {
           this.$router.push('/login')
-        } else {
-          this.$router.push('/dashboard/products')
         }
       })
   }
