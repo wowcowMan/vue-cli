@@ -20,6 +20,7 @@
       </div>
     </form>
   </div>
+  <Loading :active="isLoading"></Loading>
 </template>
 
 <script>
@@ -29,15 +30,18 @@ export default {
       user: {
         username: '',
         password: ''
-      }
+      },
+      isLoading: false
     }
   },
   methods: {
     signIn() {
       // console.log('in')
       const api = `${process.env.VUE_APP_API}admin/signin`
+      this.isLoading = true
       this.$http.post(api, this.user)
         .then((res) => {
+          this.isLoading = false
           console.log(res.data)
           if (res.data.success) {
             const { token, expired } = res.data
